@@ -63,5 +63,5 @@
 
 <%
     // 메시지 출력
-    out.println("<script type='text/javascript'>alert('" + message + "'); window.location.href = 'index.jsp';</script>");
+    out.println("<script type='text/javascript'>alert('" + message + "'); window.location.href = 'index.html';</script>");
 %>
