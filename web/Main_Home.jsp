@@ -32,13 +32,18 @@
 <div id="addBookModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <form id="bookForm">
+        <form action="insert_book.jsp" method="post" enctype="multipart/form-data" id="bookForm">
+            <label for="bookName">책 이름:</label>
+            <input type="text" id="bookName" name="bookName"><br>
+
             <label for="bookCover">책 표지:</label>
-            <input type="file" id="bookCover" accept="image/*" onchange="previewCover(this.files)">
+            <input type="file" id="bookCover" name="bookCover" accept="image/*" onchange="previewCover(this.files)">
             <div id="coverPreview"></div><br>
+
             <label for="bookContent">책 내용:</label>
-            <input type="file" id="bookContent" accept="image/*" multiple onchange="previewContent(this.files)">
+            <input type="file" id="bookContent" name="bookContent" accept="image/*" multiple onchange="previewContent(this.files)">
             <div id="contentPreview"></div><br>
+
             <button type="submit">책 추가</button>
         </form>
     </div>
@@ -100,6 +105,7 @@
 <script>
     const bookContainer = document.querySelector('.main-content');
 
+    <% if (session.getAttribute("book_name") != null) { %>
     // 예시 이미지 파일 경로
     const imagePaths = ['image/<%= session.getAttribute("book_name") %>'];
 
@@ -114,6 +120,7 @@
         bookDiv.appendChild(img);
         bookContainer.appendChild(bookDiv);
     });
+    <% } %>
 
     //책 추가부분
     const addBookBtn = document.querySelector('.add-book');
@@ -162,11 +169,12 @@
         });
     }
 
-    document.getElementById('bookForm').addEventListener('submit', function(event) {
+    bookForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        alert('책이 추가되었습니다!');
-        modal.style.display = "none";
+        // 폼을 직접 제출하는 코드 추가
+        this.submit();
     });
 </script>
+
 </body>
 </html>
