@@ -4,14 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비밀번호 찾기</title>
+    <!--    <link rel="stylesheet" href="css/login_styles.css">-->
     <link rel="stylesheet" href="css/login_styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="image/pbc_logo1.png">
 </head>
 <body>
-<div class="form-container">
+<div class="image">
+    <a href="verificationCode.html">
+        <img src="image/pbc_logo2.png" width="300px">
+    </a>
+</div>
+
+<div class="wrapper">
     <form action="verificationCode.jsp" method="post" id="findForm">
-        <h2>비밀번호찾기</h2>
-        <input type="text" id="verificationCode" name="verificationCode" placeholder="인증번호" required>
-        <button type="submit">인증번호 확인</button>
+        <h1>이메일 인증</h1>
+        <div class="input-box">
+            <input type="text" id="verificationCode" name="verificationCode" placeholder="인증번호" required>
+            <i class='bx bx-envelope-open'></i>
+        </div>
+        <button type="submit" class="btn">인증번호 확인</button>
     </form>
 </div>
 </body>

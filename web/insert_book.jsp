@@ -39,12 +39,4 @@
         fileOut.close();
     }
 %>
-<html>
-<head>
-    <title>이미지 업로드 완료</title>
-</head>
-<body>
-<h2>이미지 업로드 완료</h2>
-<p>업로드된 파일: <%= fileName %></p>
-</body>
-</html>
+

@@ -55,5 +55,6 @@
     <orderEntry type="library" name="org.apache.commons.commons-fileupload_1.5.0" level="project" />
     <orderEntry type="library" name="cos" level="project" />
     <orderEntry type="library" name="javax.annotation" level="project" />
+    <orderEntry type="library" name="boxicons" level="application" />
   </component>
 </module>

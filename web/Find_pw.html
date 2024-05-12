@@ -5,14 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>비밀번호 찾기</title>
   <link rel="stylesheet" href="css/login_styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" type="images/png" href="images/pbc_logo1.png">
 </head>
 <body>
-<div class="form-container">
+<div class="image">
+  <a href="Find_pw.html">
+    <img src="images/pbc_logo2.png" width="300px">
+  </a>
+</div>
+
+<div class="wrapper">
+
   <form action="Find_pw_Check.jsp" method="post" id="findForm">
-    <h2>비밀번호찾기</h2>
-    <input type="text" id="findUsername" name="findUsername" placeholder="이름" required>
-    <input type="email" id="findEmail" name="findEmail" placeholder="이메일" required>
-    <button type="submit">이메일 인증</button>
+    <h1>비밀번호 <span id="find">찾기</span></h1>
+    <div class="input-box">
+      <input type="text" id="findUsername" name="findUsername" placeholder="이름" required>
+      <i class='bx bxs-user'></i>
+    </div>
+    <div class="input-box">
+      <input type="email" id="findEmail" name="findEmail" placeholder="이메일" required>
+      <i class='bx bx-envelope'></i>
+    </div>
+    <button type="submit" class="btn">이메일 인증</button>
     <p>다시 로그인하기 <span id="showLoginFromFind" onclick="location.href = 'index.html';">로그인</span></p>
   </form>
 </div>
