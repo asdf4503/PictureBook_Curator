@@ -3,4 +3,16 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <!-- UploadCoverServlet 매핑 -->
+    <servlet>
+        <servlet-name>UploadCoverServlet</servlet-name>
+        <servlet-class>main.UploadCoverServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UploadCoverServlet</servlet-name>
+        <url-pattern>/UploadCoverServlet</url-pattern>
+    </servlet-mapping>
+
 </web-app>

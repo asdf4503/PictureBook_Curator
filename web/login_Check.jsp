@@ -73,6 +73,7 @@
     // user_id가 0보다 큰 경우에만 세션에 저장
     if (userId > 0) {
         session.setAttribute("user_id", userId);
+        System.out.println("세션에 저장된 user_id: " + session.getAttribute("user_id"));
     }
 
     // 로그인 성공 여부에 따라 페이지 이동 및 메시지 출력

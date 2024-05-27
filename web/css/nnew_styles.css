@@ -1,0 +1,174 @@
+
+body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background: #fff; }
+.header { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f8f8f8; }
+.title { font-size: 24px; }
+.icons { font-size: 20px; }
+.icon { cursor: pointer; }
+.search-icon::before { content: '🔍'; }
+.notification-icon::before { content: '🔔'; }
+.settings-icon::before { content: '⚙️'; }
+.sorting-tabs { display: flex; justify-content: space-around; background: #eee; padding: 10px 0; }
+.tab { display: inline-block; margin: 0 5px; padding: 5px 15px; background: #fff; border-radius: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); cursor: pointer; font-size: 14px; }
+.main-content { display: flex; flex-wrap: wrap; gap: 10px; padding: 10px; justify-content: center; }
+.book-cover img{
+    width: 100%; height: 200px; object-fit: cover; border-radius: 5px;
+}
+.book, .add-book { width: 150px; height: 200px; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 2px dashed #ddd; border-radius: 5px; }
+.book img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+@media (min-width: 768px) {
+    .sorting-tabs { justify-content: start; padding-left: calc((100vw - 768px) / 2); }
+    .main-content { justify-content: flex-start; padding-left: calc((100vw - 768px) / 2); padding-right: calc((100vw - 768px) / 2); }
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@font-face {
+    font-family: 'yangjin';
+    src: url('https://cdn.jsdelivr.net/gh/supernovice-lab/font@0.9/yangjin.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 기존 스타일에 추가 */
+
+/* Modal 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #E8EAF5;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    border: 2px solid rgba(255, 222, 233, .1);
+    text-align: center; /* 내용을 가운데 정렬 */
+    color: #5C6BC0;
+    font-family: 'yangjin', sans-serif;
+    font-size: 18px;
+}
+
+.close {
+    color: #5C6BC0;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -10px;
+}
+
+.close:hover,
+.close:focus {
+    color: #333f85;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-content h1 {
+    font-size: 30px;
+    text-align: center;
+    font-family: 'yangjin', sans-serif;
+    color: #333f85;
+}
+
+.modal-content .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+    margin-bottom: 15px;
+}
+
+.modal-content input[type="text"] {
+    height: 7px;
+    background: white;
+    outline: none;
+    border: 0.5px solid rgba(92, 107, 192, .4);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #333f85;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box i {
+    position: absolute;
+    right: 15px;
+    top: 45%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #5C6BC0;
+}
+
+.upload-box {
+    font-size: 16px;
+    background: white;
+    border-radius: 50px;
+    border: 0.5px solid rgba(92, 107, 192, .4);
+    width: 100%; /* 부모 요소 너비에 맞추도록 설정 */
+    outline: none;
+    box-sizing: border-box; /* 패딩 포함 너비 계산 */
+}
+
+::-webkit-file-upload-button {
+    color: white;
+    background: #5C6BC0;
+    padding: 11px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    box-sizing: border-box; /* 패딩 포함 너비 계산 */
+}
+
+::-webkit-file-upload-button:hover {
+    background: #333f85;
+    cursor: pointer;
+}
+
+.modal-content .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 18px;
+    color: #5C6BC0;
+    font-weight: 600;
+    font-family: 'yangjin', sans-serif;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="file"],
+.modal-content .btn {
+    width: calc(100% - 40px); /* 버튼과 동일한 너비로 설정 */
+    height: 45px; /* 높이를 버튼과 동일하게 설정 */
+    box-sizing: border-box; /*패딩 및 테두리 포함하여 크기 계산 */
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}

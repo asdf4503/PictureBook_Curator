@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>책 내용 업로드</title>
+  <link rel="stylesheet" href="css/book_styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" type="images/png" href="image/pbc_logo1.png">
+</head>
+
+<body>
+<div class="image">
+  <a href="bookContent.html">
+    <img src="image/pbc_logo2.png" width="300px">
+  </a>
+</div>
+<div class="wrapper">
+  <form action="UploadContentServlet" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+    <h1>책 내용 업로드</h1>
+    <br>
+    <!-- <label for="bookContent">책 내용:</label> -->
+    <div>
+
+      <input type="file" class="upload-box" id="bookContent" name="bookContent" accept="image/*" multiple required>
+    </div>
+    <br>
+    <button type="submit" class="btn"><i class='bx bx-upload'></i>&nbsp;&nbsp;업로드</button>
+  </form>
+</div>
+</body>
+</html>

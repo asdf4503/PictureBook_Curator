@@ -5,20 +5,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <title>PictureBook Creator</title>
+    <link rel="stylesheet" href="css/nnew_styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" type="image/png" href="image/pbc_logo1.png">
+    <title>PictureBook Curator</title>
 </head>
 <body>
 
 <div class="header">
-    <div class="title">PictureBook Creator</div>
+    <div class="title">
+        <a href="new_index.html">
+            <img src="image/pbc_logo2.png" width="200px">
+        </a>
+    </div>
     <div class="icons">
         <span class="icon search-icon"></span>
         <span class="icon notification-icon"></span>
         <span class="icon settings-icon"></span>
     </div>
 </div>
-<!-- HTML -->
+
 <div class="sorting-tabs">
     <div class="tab">날짜</div>
     <div class="tab">이름</div>
@@ -32,19 +38,19 @@
 <div id="addBookModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <form action="insert_book.jsp" method="post" enctype="multipart/form-data" id="bookForm">
-            <label for="bookName">책 이름:</label>
-            <input type="text" id="bookName" name="bookName"><br>
+        <form action="UploadCoverServlet" method="post" enctype="multipart/form-data" id="bookForm" accept-charset="UTF-8">
+            <h1>책 정보 업로드</h1>
+            <div class="input-box">
+                <label for="bookName">제목</label>
+                <input type="text" id="bookName" name="bookName" required>
+                <i class='bx bx-book'></i>
+            </div>
 
-            <label for="bookCover">책 표지:</label>
-            <input type="file" id="bookCover" name="bookCover" accept="image/*" onchange="previewCover(this.files)">
+            <label for="bookCover">표지</label>
+            <input type="file" class="upload-box" id="bookCover" name="bookCover" accept="image/*" onchange="previewCover(this.files)" required>
             <div id="coverPreview"></div><br>
 
-            <label for="bookContent">책 내용:</label>
-            <input type="file" id="bookContent" name="bookContent" accept="image/*" multiple onchange="previewContent(this.files)">
-            <div id="contentPreview"></div><br>
-
-            <button type="submit">책 추가</button>
+            <button type="submit" class="btn"><i class='bx bxs-plus-square'></i>&nbsp;&nbsp;책 추가</button>
         </form>
     </div>
 </div>
@@ -76,7 +82,7 @@
             String book_name = null;
             if(rs.next()) {
                 book_name = rs.getString("book_name");
-                session.setAttribute("book_name", book_name); // 사용자 이름을 세션에 저장
+                //session.setAttribute("book_name", book_name); // 사용자 이름을 세션에 저장
             }
         } else {
             Check = 0;
@@ -102,12 +108,13 @@
         }
     }
 %>
+
 <script>
     const bookContainer = document.querySelector('.main-content');
 
     <% if (session.getAttribute("book_name") != null) { %>
     // 예시 이미지 파일 경로
-    const imagePaths = ['image/<%= session.getAttribute("book_name") %>'];
+    const imagePaths = ['image/<%= session.getAttribute("book_name") %>/<%= session.getAttribute("bookCover") %>'];
 
     // 이미지 파일을 book 클래스에 추가
     imagePaths.forEach(path => {
@@ -122,7 +129,7 @@
     });
     <% } %>
 
-    //책 추가부분
+    // 책 추가 부분
     const addBookBtn = document.querySelector('.add-book');
     const modal = document.getElementById('addBookModal');
     const closeModal = document.querySelector('.close');
@@ -169,8 +176,9 @@
         });
     }
 
+    const bookForm = document.getElementById('bookForm');
     bookForm.addEventListener('submit', function(event) {
-        event.preventDefault();
+        //event.preventDefault();
         // 폼을 직접 제출하는 코드 추가
         this.submit();
     });
